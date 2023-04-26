@@ -7,7 +7,75 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header__nav {
+  padding: 0 1rem;
+}
+
+.content {
+  min-height: calc(100vh - 64px - 70px);
+  padding: 1.5rem 0;
+}
+
+.film-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card:hover {
+  box-shadow: 10px 5px 5px lightgrey;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card .card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+  color: #000;
+}
+
+.card .card-image img {
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.film-year {
+  padding: 5px 7px;
+}
+
+.film-type {
+  background-color: blanchedalmond;
+  border-radius: 10px;
+  padding: 5px 7px;
+}
+
+.card .card-content .card-title {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 26px;
+  overflow: hidden;
+  display: block;
+  max-height: 75px;
+}
+
+.search-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: space-between;
 }
