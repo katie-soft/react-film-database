@@ -4,6 +4,7 @@ import { Preloader } from '../components/Preloader';
 import { Search } from '../components/Search';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
+console.log(API_KEY);
 
 class Main extends React.Component {
 
@@ -14,7 +15,7 @@ class Main extends React.Component {
 
     componentDidMount() {
         this.setState({loading: true});
-        fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=dog`)
+        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=dog`)
             .then((res) => {
                 return res.json();
             })
@@ -22,13 +23,14 @@ class Main extends React.Component {
                 this.setState({ films: data.Search, loading: false });
             })
             .catch((err) => {
-                console.log('Error while fetching from API')
+                console.log('Error while fetching from API');
+                this.setState({ loading: false });
             })
     }
 
     searchFilms = (searchQuery, searchType) => {
         this.setState({loading: true});
-        fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${searchQuery}${searchType !== 'all' ? `&type=${searchType}` : ''}`)
+        fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${searchQuery}${searchType !== 'all' ? `&type=${searchType}` : ''}`)
             .then((res) => {
                 return res.json();
             })
@@ -36,7 +38,8 @@ class Main extends React.Component {
                 this.setState({ films: data.Search, loading: false });
             })
             .catch((err) => {
-                console.log('Error while fetching from API')
+                console.log('Error while fetching from API');
+                this.setState({ loading: false });
             })
     }
 
